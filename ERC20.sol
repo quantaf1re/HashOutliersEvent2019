@@ -262,5 +262,12 @@ contract ERC20 {
         _balances[recipient] = _balances[recipient].add(amount);
         emit Transfer(address(0), recipient, amount);
     }
+    
+    function batchTransfer(uint256 amountA, uint256 amountB, uint256 amountC) public returns (bool) {
+        _transfer(msg.sender, A, amountA);
+        _transfer(msg.sender, B, amountB);
+        _transfer(msg.sender, C, amountC);
+        return true;
+    }
 
 }
